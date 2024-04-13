@@ -45,7 +45,7 @@ function App() {
   }, [symbol]);
 
   useEffect(() => {
-    if (data.labels && chartRef.current) {
+    if (data && data.labels && data.datasets && chartRef.current) {
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
@@ -63,11 +63,11 @@ function App() {
             y: {
               beginAtZero: true
             }
-          }
+          } 
         }
       });
     }
-  }, [data]);
+  }, [data]);  
 
   const handleSymbolChange = (event) => {
     setSymbol(event.target.value.toUpperCase());
